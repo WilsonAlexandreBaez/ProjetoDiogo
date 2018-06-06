@@ -17,7 +17,7 @@
         android:text="Login" />
 
     <EditText
-        android:id="@+id/nomeUsuario"
+        android:id="@+id/tela_login_usuario"
         android:layout_width="252dp"
         android:hint="Login"
         android:backgroundTint="#04258f"
@@ -28,7 +28,7 @@
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/tela_login_senha"
         android:layout_width="252dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
