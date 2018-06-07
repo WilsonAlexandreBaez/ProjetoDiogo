@@ -13,18 +13,18 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="48dp"
-        android:textSize="30dp"
-        android:text="Login" />
+        android:text="Login"
+        android:textSize="30dp" />
 
     <EditText
         android:id="@+id/tela_login_usuario"
         android:layout_width="252dp"
-        android:hint="Login"
-        android:backgroundTint="#04258f"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="112dp"
+        android:backgroundTint="#04258f"
+        android:hint="Login"
         android:inputType="textPersonName" />
 
     <EditText
@@ -46,9 +46,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="223dp"
         android:background="#053897"
+        android:onClick="botaoLogar"
         android:text="Entrar"
-        android:textColor="#fff"
-        android:onClick="login"/>
+        android:textColor="#fff" />
 
     <TextView
         android:id="@+id/textView4"
@@ -57,9 +57,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="216dp"
-        android:textColor="#071f41"
+        android:onClick="cadastre"
         android:text="Não possui usuário? Cadastre."
-        android:onClick="cadastre"/>
-
+        android:textColor="#071f41" />
 
 </RelativeLayout>

@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.josmar.tarefas.DAO.DAOUsuarios;
+
 /**
  * Criado por Josmar Saiefert em 03/06/2018.
  */
@@ -20,7 +22,7 @@ public class TelaLoginActivity extends AppCompatActivity {
         setContentView(R.layout.tela_login);
     }
 
-    public void login(View view) {
+    public void botaoLogar(View view) {
 
         EditText usuario = findViewById(R.id.tela_login_usuario);
         EditText senha = findViewById(R.id.tela_login_senha);
@@ -28,14 +30,20 @@ public class TelaLoginActivity extends AppCompatActivity {
         String validaUsuario = usuario.getText().toString();
         String validaSenha = senha.getText().toString();
 
+        DAOUsuarios daoUsuarios = new DAOUsuarios(this);
+        int idUsuario = daoUsuarios.Login(validaUsuario,validaSenha);
+
         if (TextUtils.isEmpty(validaUsuario)) {
             usuario.setError("Usuário não pode ser vazio!");
         } else if (TextUtils.isEmpty(validaSenha)) {
             senha.setError("Senha não pode ser vazia!");
-        } else {
+        } else if (idUsuario != 0){
             Intent vaiPraLista = new Intent(TelaLoginActivity.this, ListaTarefasActivity.class);
             startActivity(vaiPraLista);
-            Toast.makeText(this, "Bem vindo Usuário", Toast.LENGTH_SHORT).show();
+            finish();
+            Toast.makeText(this, "Bem vindo " + validaUsuario, Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(this, "Usuário ou senha Inválidos", Toast.LENGTH_SHORT).show();
         }
     }
 

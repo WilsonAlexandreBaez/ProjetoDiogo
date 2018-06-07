@@ -17,21 +17,15 @@
         android:textSize="20dp" />
 
     <EditText
-        android:id="@+id/formulario_usuario"
+        android:id="@+id/cadastro_usuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="#04258f"
-        android:hint="Usuário" />
+        android:hint="Usuário"
+        android:inputType="textPersonName"/>
 
     <EditText
-        android:id="@+id/formulario_nome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#04258f"
-        android:hint="Nome" />
-
-    <EditText
-        android:id="@+id/formulario_senha"
+        android:id="@+id/cadastro_senha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="#04258f"
@@ -39,19 +33,12 @@
         android:hint="Senha" />
 
     <EditText
-        android:id="@+id/formulario_confirma_senha"
+        android:id="@+id/cadastro_confirma_senha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:backgroundTint="#04258f"
         android:hint="Confirmar Senha" />
-
-    <EditText
-        android:id="@+id/formulario_email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#04258f"
-        android:hint="E-mail" />
 
     <Button
         android:id="@+id/button2"

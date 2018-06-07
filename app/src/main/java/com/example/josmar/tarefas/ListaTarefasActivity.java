@@ -10,9 +10,13 @@ import android.os.Bundle;
 
 public class ListaTarefasActivity extends AppCompatActivity {
 
+    public int identificadorUsuario;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_tarefas);
+
+
     }
 }
