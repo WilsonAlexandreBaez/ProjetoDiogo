@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
@@ -23,7 +25,7 @@ public class TelaLoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide(); //<< this
+        getSupportActionBar().hide();
         setContentView(R.layout.tela_login);
     }
 
@@ -60,7 +62,6 @@ public class TelaLoginActivity extends AppCompatActivity {
             Toast.makeText(this, "Usuário ou senha Inválidos", Toast.LENGTH_SHORT).show();
         }
     }
-
 
     public void cadastre(View view) {
         Intent vaiProCadastro = new Intent(TelaLoginActivity.this, CadastroUsuarioActivity.class);

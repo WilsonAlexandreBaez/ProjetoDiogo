@@ -2,21 +2,24 @@ package com.example.josmar.tarefas;
 
 import android.widget.EditText;
 
-import com.example.josmar.tarefas.Modelo.Usuario;
+import com.example.josmar.tarefas.Modelo.Tarefas;
 
 public class CadastraTarefas {
-    private final EditText campoUsuario;
-    private final EditText campoSenha;
+    private final EditText campoDescricao;
+    private final EditText campoVencimento;
+
+    CadastraTarefasActivity lista = new CadastraTarefasActivity();
 
     public CadastraTarefas(CadastraTarefasActivity activity) {
-        campoUsuario = activity.findViewById(R.id.cadastro_usuario);
-        campoSenha = activity.findViewById(R.id.cadastro_senha);
+        campoDescricao = activity.findViewById(R.id.cadastra_tarefas_descricao);
+        campoVencimento = activity.findViewById(R.id.cadastra_tarefas_vencimento);
     }
 
-    public Usuario bancoUsuario() {
-        Usuario usuario = new Usuario();
-        usuario.setUsuario(campoUsuario.getText().toString());
-        usuario.setSenha(campoSenha.getText().toString());
-        return usuario;
+    public Tarefas bancoUsuario() {
+        Tarefas tarefas = new Tarefas();
+        tarefas.setIdUsuario(lista.carregar());
+        tarefas.setDescricao(campoDescricao.getText().toString());
+        tarefas.setDataVencimento(campoVencimento.getText().toString());
+        return tarefas;
     }
 }

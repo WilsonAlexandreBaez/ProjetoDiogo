@@ -17,7 +17,7 @@ import java.util.List;
 
 public class DAOUsuarios extends SQLiteOpenHelper {
     public DAOUsuarios(Context context) {
-        super(context, "Tarefas", null, 1);
+        super(context, "Aplicativo", null, 1);
     }
 
     @Override
