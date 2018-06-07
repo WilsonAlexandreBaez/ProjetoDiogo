@@ -43,15 +43,15 @@ public class DAOUsuarios extends SQLiteOpenHelper {
         db.insert("Usuarios", null, dados);
     }
 
-    public int Login(String usuario, String senha) {
+    public int VerificaID(String usuario, String senha) {
         SQLiteDatabase db = getReadableDatabase();
-        String[] busca = new String[]{usuario, senha};
+        String[] params = {usuario, senha};
         try {
             int i = 0;
             Cursor c = null;
-            c = db.rawQuery("select * from Usuarios where usuario=? and senha=?", busca);
+            c = db.rawQuery("select * from Usuarios where usuario=? and senha=?", params);
             c.moveToFirst();
-            i = c.getCount();
+            i = c.getInt(c.getColumnIndex("id"));
             c.close();
             return i;
         } catch (Exception e) {
@@ -77,24 +77,4 @@ public class DAOUsuarios extends SQLiteOpenHelper {
         return 0;
     }
 
-    /*public List<Usuario> buscaUsuario() {
-        String sql = "SELECT * FROM Usuarios;";
-        SQLiteDatabase db = getReadableDatabase();
-        Cursor c = db.rawQuery(sql,null);
-        List<Usuario> usuarios = new ArrayList<Usuario>();
-
-        while (c.moveToNext()){
-            Usuario usuario = new Usuario();
-            usuario.setId(c.getInt(c.getColumnIndex("id")));
-            usuario.setUsuario(c.getString(c.getColumnIndex("usuario")));
-            usuario.setNome(c.getString(c.getColumnIndex("nome")));
-            usuario.setSenha(c.getString(c.getColumnIndex("senha")));
-            usuario.setEmail(c.getString(c.getColumnIndex("email")));
-
-            usuarios.add(usuario);
-        }
-        c.close();
-       return usuarios;
-    }
-    */
 }

@@ -1,6 +1,8 @@
 package com.example.josmar.tarefas;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -15,6 +17,7 @@ import com.example.josmar.tarefas.DAO.DAOUsuarios;
  */
 
 public class TelaLoginActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +34,8 @@ public class TelaLoginActivity extends AppCompatActivity {
         String validaSenha = senha.getText().toString();
 
         DAOUsuarios daoUsuarios = new DAOUsuarios(this);
-        int idUsuario = daoUsuarios.Login(validaUsuario,validaSenha);
+        int idUsuario = daoUsuarios.VerificaID(validaUsuario, validaSenha);
+
 
         if (TextUtils.isEmpty(validaUsuario)) {
             usuario.setError("Usuário não pode ser vazio!");
@@ -40,12 +44,21 @@ public class TelaLoginActivity extends AppCompatActivity {
         } else if (idUsuario != 0){
             Intent vaiPraLista = new Intent(TelaLoginActivity.this, ListaTarefasActivity.class);
             startActivity(vaiPraLista);
-            finish();
+
+            SharedPreferences preferencias = getSharedPreferences("preferencias_usuario", Activity.MODE_PRIVATE);
+            SharedPreferences.Editor editor = preferencias.edit();
+            editor.clear();
+            editor.putInt("id_usuario", idUsuario);
+            editor.commit();
+
             Toast.makeText(this, "Bem vindo " + validaUsuario, Toast.LENGTH_SHORT).show();
+
+            finish();
         }else {
             Toast.makeText(this, "Usuário ou senha Inválidos", Toast.LENGTH_SHORT).show();
         }
     }
+
 
     public void cadastre(View view) {
         Intent vaiProCadastro = new Intent(TelaLoginActivity.this, CadastroUsuarioActivity.class);

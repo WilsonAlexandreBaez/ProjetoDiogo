@@ -56,7 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="216dp"
+        android:layout_marginBottom="223dp"
         android:onClick="cadastre"
         android:text="Não possui usuário? Cadastre."
         android:textColor="#071f41" />

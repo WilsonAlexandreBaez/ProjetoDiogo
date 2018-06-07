@@ -9,6 +9,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.example.josmar.tarefas.Modelo.Tarefas;
 import com.example.josmar.tarefas.Modelo.Usuario;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DAOTarefas extends SQLiteOpenHelper {
     public DAOTarefas(Context context) {
         super(context, "Tarefas", null, 1);
@@ -37,25 +40,22 @@ public class DAOTarefas extends SQLiteOpenHelper {
         db.insert("Tarefas", null, dados);
     }
 
-    /*public List<Usuario> buscaUsuario() {
-        String sql = "SELECT * FROM Usuarios;";
+    public List<Tarefas> listaTarefas() {
+        String sql = "SELECT * FROM Tarefas;";
         SQLiteDatabase db = getReadableDatabase();
         Cursor c = db.rawQuery(sql,null);
-        List<Usuario> usuarios = new ArrayList<Usuario>();
+        List<Tarefas> tarefas = new ArrayList<Tarefas>();
 
         while (c.moveToNext()){
-            Usuario usuario = new Usuario();
-            usuario.setId(c.getInt(c.getColumnIndex("id")));
-            usuario.setUsuario(c.getString(c.getColumnIndex("usuario")));
-            usuario.setNome(c.getString(c.getColumnIndex("nome")));
-            usuario.setSenha(c.getString(c.getColumnIndex("senha")));
-            usuario.setEmail(c.getString(c.getColumnIndex("email")));
+            Tarefas tarefa = new Tarefas();
+            tarefa.setId(c.getInt(c.getColumnIndex("id")));
+            tarefa.setDescricao(c.getString(c.getColumnIndex("descricao")));
+            tarefa.setDataVencimento(c.getString(c.getColumnIndex("vencimento")));
 
-            usuarios.add(usuario);
+            tarefas.add(tarefa);
         }
         c.close();
-       return usuarios;
+        return tarefas;
     }
-    */
 }
 
