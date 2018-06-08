@@ -37,4 +37,9 @@ public class Tarefas {
     public void setDataVencimento(String dataVencimento) {
         this.dataVencimento = dataVencimento;
     }
+
+    @Override
+    public String toString() {
+        return getDescricao();
+    }
 }

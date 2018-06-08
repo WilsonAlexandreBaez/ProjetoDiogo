@@ -59,7 +59,7 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
             Usuario usuario = cadastro.bancoUsuario();
             DAOUsuarios dao = new DAOUsuarios(this);
             dao.cadastra(usuario);
-            dao.close();
+            //dao.close();
             Toast.makeText(this, "Usuário Cadastrado com Sucesso!", Toast.LENGTH_SHORT).show();
             finish();
         } else {

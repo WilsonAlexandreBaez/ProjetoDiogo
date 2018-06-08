@@ -27,6 +27,7 @@ public class CadastraTarefasActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastra_tarefas);
 
+        Toast.makeText(this, "ID: " + carregar(), Toast.LENGTH_LONG).show();
         cadastraTarefas = new CadastraTarefas(this);
     }
 
@@ -45,9 +46,9 @@ public class CadastraTarefasActivity extends AppCompatActivity {
                 Tarefas tarefas = cadastraTarefas.bancoUsuario();
                 DAOTarefas dao = new DAOTarefas(this);
                 dao.insereTarefa(tarefas);
-                dao.close();
+                //dao.close();
 
-                Toast.makeText(CadastraTarefasActivity.this, "Aluno " + tarefas.getDescricao() + " Salvo!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CadastraTarefasActivity.this, "Tarefa " + tarefas.getDescricao() + " Salvo!", Toast.LENGTH_SHORT).show();
 
                 finish();
                 break;

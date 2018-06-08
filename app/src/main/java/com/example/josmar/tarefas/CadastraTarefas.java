@@ -8,9 +8,10 @@ public class CadastraTarefas {
     private final EditText campoDescricao;
     private final EditText campoVencimento;
 
-    CadastraTarefasActivity lista = new CadastraTarefasActivity();
+    CadastraTarefasActivity lista;
 
     public CadastraTarefas(CadastraTarefasActivity activity) {
+        lista = activity;
         campoDescricao = activity.findViewById(R.id.cadastra_tarefas_descricao);
         campoVencimento = activity.findViewById(R.id.cadastra_tarefas_vencimento);
     }

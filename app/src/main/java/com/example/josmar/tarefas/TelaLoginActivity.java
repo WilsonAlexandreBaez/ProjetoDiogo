@@ -13,6 +13,7 @@ import android.view.Window;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.josmar.tarefas.DAO.DAOTarefas;
 import com.example.josmar.tarefas.DAO.DAOUsuarios;
 
 /**
