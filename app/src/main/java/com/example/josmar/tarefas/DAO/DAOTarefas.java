@@ -23,15 +23,16 @@ public class DAOTarefas {
         ContentValues dados = new ContentValues();
         dados.put("descricao", tarefas.getDescricao());
         dados.put("idUsuario", tarefas.getIdUsuario());
-//        dados.put("vencimento", tarefas.getIdUsuario());
+//      dados.put("vencimento", tarefas.getIdUsuario());
 
         db.insert("Tarefas", null, dados);
     }
 
-    public List<Tarefas> buscaTarefas() {
-        String sql = "SELECT * FROM Tarefas;";
+    public List<Tarefas> buscaTarefas(String idUsr) {
+        String[] parametro = {idUsr};
+        String sql = ("SELECT * FROM Tarefas WHERE idUsuario=?");
         SQLiteDatabase db = DBHelper.getBancoLeitura(context);
-        Cursor c = db.rawQuery(sql,null);
+        Cursor c = db.rawQuery(sql,parametro);
         List<Tarefas> tarefas = new ArrayList<Tarefas>();
 
         while (c.moveToNext()){
@@ -42,6 +43,7 @@ public class DAOTarefas {
 
             tarefas.add(tarefa);
         }
+
         c.close();
         return tarefas;
     }

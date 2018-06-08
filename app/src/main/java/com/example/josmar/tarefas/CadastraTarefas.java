@@ -18,7 +18,7 @@ public class CadastraTarefas {
 
     public Tarefas bancoUsuario() {
         Tarefas tarefas = new Tarefas();
-        tarefas.setIdUsuario(lista.carregar());
+        tarefas.setIdUsuario(lista.carregaIdUsuario());
         tarefas.setDescricao(campoDescricao.getText().toString());
         tarefas.setDataVencimento(campoVencimento.getText().toString());
         return tarefas;
